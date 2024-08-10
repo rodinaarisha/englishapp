@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddWordForm.css'; // Импортируем файл стилей
 
 const AddWordForm = ({ onAdd }) => {
     const [term, setTerm] = useState('');
@@ -18,27 +19,28 @@ const AddWordForm = ({ onAdd }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                placeholder="Слово" 
-                value={term} 
-                onChange={(e) => setTerm(e.target.value)} 
-                required 
-            />
-            <input 
-                type="text" 
-                placeholder="Транскрипция" 
-                value={transcription} 
-                onChange={(e) => setTranscription(e.target.value)} 
-                required 
-            />
-            <input 
-                type="text" 
-                placeholder="Перевод" 
-                value={translation} 
-                onChange={(e) => setTranslation(e.target.value)} 
-                required 
-            />
+            <div className="input-group">
+                <input 
+                    type="text" 
+                    placeholder="Слово" 
+                    value={term} 
+                    onChange={(e) => setTerm(e.target.value)} 
+                    required 
+                />
+                <input 
+                    type="text" 
+                    placeholder="Транскрипция" 
+                    value={transcription} 
+                    onChange={(e) => setTranscription(e.target.value)} 
+                />
+                <input 
+                    type="text" 
+                    placeholder="Перевод" 
+                    value={translation} 
+                    onChange={(e) => setTranslation(e.target.value)} 
+                    required 
+                />
+            </div>
             <input 
                 type="text" 
                 placeholder="Тема" 

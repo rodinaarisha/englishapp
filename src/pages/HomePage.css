@@ -1,0 +1,30 @@
+.home__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    font-size: 35px;
+}
+
+.home__header {
+    margin-bottom: 10px;
+}
+
+.home__about {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.home__introduction {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.button__home {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 35px;
+    cursor: pointer;
+}

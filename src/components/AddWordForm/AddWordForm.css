@@ -1,0 +1,44 @@
+form {
+    display: flex;
+    flex-direction: row; /* Располагаем элементы в строку */
+    align-items: center; /* Центруем элементы по вертикали */
+    background-color: #FFF4F7; /* Светлый розовый фон */
+    border-radius: 50px; /* Закругленные углы */
+    padding: 10px; /* Уменьшенные отступы внутри формы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.input-group {
+    display: flex; /* Располагаем инпуты в строку */
+ /* Отступ между группами */
+    
+
+}
+
+input {
+    margin-left:10px;
+    margin-right:10px;
+    padding: 10px; /* Отступы внутри полей ввода */
+    border: 1px solid #F1B2C1; /* Легкая граница */
+    border-radius: 25px; /* Закругление углов */
+    font-size: 16px; /* Размер шрифта */
+    min-width: 200px;
+}
+
+input::placeholder {
+    color: #A68C8C; /* Цвет текста-заполнителя */
+}
+
+button {
+    padding: 10px; /* Отступы внутри кнопки */
+    border: none; /* Без рамки */
+    border-radius: 25px; /* Закругленные углы кнопки */
+    background-color: #F8C6D7; /* Нежный светлый пудровый цвет кнопки */
+    color: #444444; /* Цвет текста кнопки */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+button:hover {
+    background-color: #FECEDB; /* Цвет кнопки при наведении */
+}

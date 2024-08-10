@@ -1,32 +1,23 @@
-import React, { useState } from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import WordList from '../components/WordList/WordList';
-import AddWordForm from '../components/AddWordForm/AddWordForm';
+import { Link } from 'react-router-dom';
+import './HomePage.css';
 
 const HomePage = () => {
-    const [words, setWords] = useState([]);
-
-    const addWord = (newWord) => {
-        // Здесь можно добавить логику для присвоения уникального ID
-        setWords([...words, { ...newWord, id: Date.now() }]);
-    };
-
-    const editWord = (id) => {        // Логика редактирования слова
-    };
-
-    const deleteWord = (id) => {
-        setWords(words.filter(word => word.id !== id));
-    };
-
     return (
-        <div>
-            <Header />
-            <AddWordForm onAdd={addWord} />
-            <WordList words={words} onEdit={editWord} onDelete={deleteWord} />
-            <Footer />
+        <div className="home__container">
+            <header className="home__header">
+                <h1 className="home__title">Добро пожаловать!</h1>
+            </header>
+            <div className="home__introduction">
+                <p>Это приложение предназначено для изучения английского с помощью карточек.</p>
+            </div>
+            <div className="home__about">
+                Это приложение для изучения и тренировки английского словарного запаса. Вы также можете использовать приложение для добавления и редактирования новых слов.
+            </div>
+            <Link to="/Card">
+                <button className=" button button__home">Card</button>
+            </Link>
         </div>
     );
-};
+}
 
 export default HomePage;

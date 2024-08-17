@@ -7,14 +7,19 @@ const AddWordForm = ({ onAdd }) => {
     const [translation, setTranslation] = useState('');
     const [theme, setTheme] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newWord = { term, transcription, translation, theme };
-        onAdd(newWord);
+    const resetForm = () => {
         setTerm('');
         setTranscription('');
         setTranslation('');
         setTheme('');
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newWord = { term, transcription, translation, theme };
+        onAdd(newWord);
+        
+        resetForm()
     };
 
     return (

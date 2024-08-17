@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
 import data from '../data.json';
-import './Card.css';
+
+import styles from './Card.module.css';
+
+import next from '../../next.svg';
+import previous from '../../previous.svg';
 
 const Card = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,17 +28,22 @@ const Card = () => {
     const { english, transcription, russian } = data[currentIndex];
 
     return (
-        <div className="word-card-container">
-            <button onClick={prevCard} disabled={currentIndex === 0}>Предыдущее</button>
-            <div className="word-card">
+        <div className={`${styles.word_card_container} ${styles.study_block}`}>
+            <button className={styles.button_previous} onClick={prevCard} disabled={currentIndex === 0}>
+            <img src={previous} alt="Предыдущий" />
+            </button>
+            <div className={styles.word_card}>
                 <h3>{english}</h3>
                 <p>Транскрипция: {transcription}</p>
                 {showTranslation && <p>Перевод: {russian}</p>}
-                <button onClick={() => setShowTranslation(!showTranslation)}>
+                <button className={styles.button}  onClick={() => setShowTranslation(!showTranslation)}>
                     {showTranslation ? 'Скрыть перевод' : 'Показать перевод'}
                 </button>
             </div>
-            <button onClick={nextCard} disabled={currentIndex === data.length - 1}>Следующее</button>
+            <button className={styles.button_next}  onClick={nextCard} disabled={currentIndex === data.length - 1}>
+                
+            <img src={next} alt="Следующий" />
+            </button>
         </div>
     );
 };

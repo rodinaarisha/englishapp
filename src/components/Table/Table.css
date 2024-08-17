@@ -6,7 +6,7 @@
 .table {
     width: 100%; 
     border-collapse: collapse; 
-    background-color: #FFF4F7;
+    background-color: rgb(205, 243, 255);
     border-radius: 50px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .table th {
-    background-color: #F8C6D7; 
+    background-color: #e5d2dff6;
     color: #444444; }
 
 .table tr:nth-child(even) {
@@ -25,5 +25,5 @@
 }
 
 .table tr:hover {
-    background-color: #FECEDB; 
+    background-color: #f5f5f5; 
 }

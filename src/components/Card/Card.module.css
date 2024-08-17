@@ -1,0 +1,62 @@
+.word_card_container {
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    gap: 10px;               
+    padding: 20px;      
+
+}
+
+.word_card_container.study_block{
+    border-bottom: 4px solid rgb(239, 219, 222);   
+}
+
+.word_card {
+    border: 1px solid #ccc;
+    padding: 30px;
+    text-align: center;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #e5d2dff6;
+    border:3px solid #eefdec;;
+}
+.button{
+    color: #4b3c31;
+  background-color: rgb(205, 243, 255);
+    width:auto;
+    cursor: pointer; /* Курсор при наведении */
+    border: none;
+    color: black;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.button_next img{
+    width:50px;
+    cursor: pointer; /* Курсор при наведении */
+    margin: 0 auto;
+    background-color: none;
+    color: #4b3c31;
+    background-color: rgb(205, 243, 255);
+}
+
+.button_previous img{
+    color: #4b3c31;
+    background-color: rgb(205, 243, 255);
+    width:50px;
+    cursor: pointer; /* Курсор при наведении */
+    margin: 0 auto;
+    background-color: none;
+
+}
+.nav_button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    margin: 0 5px; 
+}
+

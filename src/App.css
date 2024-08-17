@@ -4,6 +4,7 @@ body {
   color: #4b3c31;
   margin: 0;
   padding: 0;
+  background-image: url('background1.jpg')
 }
 
 h1 {
@@ -16,7 +17,8 @@ h1 {
 }
 
 .button {
-  background-color: #ffcc99;
+  color: #4b3c31;
+  background-color: rgb(205, 243, 255);
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
@@ -27,5 +29,5 @@ h1 {
 }
 
 .button:hover {
-  background-color: #f28f98;
+  background-color: #62befc;
 }

@@ -1,0 +1,4 @@
+.WordCardPage{
+    display: flex;
+    flex-direction: column;
+}

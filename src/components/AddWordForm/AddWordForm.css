@@ -29,7 +29,7 @@ input::placeholder {
     color: #A68C8C; /* Цвет текста-заполнителя */
 }
 
-button {
+ .button {
     padding: 10px; /* Отступы внутри кнопки */
     border: none; /* Без рамки */
     border-radius: 25px; /* Закругленные углы кнопки */
@@ -39,6 +39,6 @@ button {
     transition: background-color 0.3s; /* Плавный переход цвета фона */
 }
 
-button:hover {
+.button:hover {
     background-color: #FECEDB; /* Цвет кнопки при наведении */
 }

@@ -1,33 +1,40 @@
 import React, { useState } from 'react';
 import styles from './WordCard.module.css';
 
-import buttonCancel from '../../buttonCancel.svg';
-import buttonChange from '../../buttonChange.svg';
-import buttonDelete from '../../buttonDelete.svg';
+import buttonCancel from '../../assets/images/buttonCancel.svg';
+import buttonChange from '../../assets/images/buttonChange.svg';
+import buttonDelete from '../../assets/images/buttonDelete.svg';
 
 
 function WordCard({ english, transcription, russian, tags, onDelete }) {
+
+  function trim(){
+    return  tags ? tags.split(',').map(tag => tag.trim()):[];
+  };
+
   const [isEditing, setIsEditing] = useState(false);
   const [editableEnglish, setEditableEnglish] = useState(english); 
   const [editableTranscription, setEditableTranscription] = useState(transcription);
   const [editableRussian, setEditableRussian] = useState(russian);
-  const [editableTags, setEditableTags] = useState(tags ? tags.split(',').map(tag => tag.trim()) : []); 
+  const [editableTags, setEditableTags] = useState(trim()); 
 
-  const tagsTitle = editableTags.length > 0 ? editableTags.join(', ') : 'Нет раздела';
+  const tagsTitle = editableTags.length ? editableTags.join(', ') : 'Нет раздела';
 
-  const handleEdit = () => {
+  /*const handleEdit = () => {
     if (isEditing) {
       setIsEditing(false); // Закрываем режим редактирования после сохранения
     } else {
       setIsEditing(true); // Открываем режим редактирования
     }
-  };
+  };*/
+  //или лучше так
+  const handleEdit = () => setIsEditing(!isEditing)
 
   const handleCancel = () => {
     setEditableEnglish(english);
     setEditableTranscription(transcription);
     setEditableRussian(russian);
-    setEditableTags(tags ? tags.split(',').map(tag => tag.trim()) : []);
+    setEditableTags(trim());
     setIsEditing(false);
   };
 

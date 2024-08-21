@@ -19,9 +19,9 @@ const App = () => {
                 {/* Определение маршрутов */}
                 <Routes> {/* Обновлено на Routes */}
                     <Route path="/" element={<HomePage />} /> {/* Главная страница */}
-                    <Route path="/TableList" element={<TablePage />} /> {/* Страница карточек */}
-                    <Route path="/Card" element={<CardPage />} /> {/* Страница карточек */}
-                    <Route path="/WordCardList" element={<WordListPage />} /> {/* Страница карточек */}
+                    <Route path="/tableList" element={<TablePage />} /> {/* Страница карточек */}
+                    <Route path="/card" element={<CardPage />} /> {/* Страница карточек */}
+                    <Route path="/wordcardlist" element={<WordListPage />} /> {/* Страница карточек */}
                     {/* Добавьте маршрут для страницы WordList, если она будет создана */}
                 </Routes>
                 <Footer />

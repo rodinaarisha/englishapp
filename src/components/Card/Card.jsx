@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import data from '../data.json';
 
@@ -11,24 +11,37 @@ const Card = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showTranslation, setShowTranslation] = useState(false);
 
+
+    useEffect(() => {
+
+        document.title = `${currentIndex}/${data.length}`;
+      });
+
     const nextCard = () => {
-        if (currentIndex < data.length - 1) {
+  // Скрыть перевод при смене карточки
+  if (currentIndex >= data.length - 1) return;
             setCurrentIndex(currentIndex + 1);
             setShowTranslation(false); // Скрыть перевод при смене карточки
-        }
+        
     };
 
     const prevCard = () => {
-        if (currentIndex > 0) {
+        if (currentIndex === 0) return;
+
+        setCurrentIndex(currentIndex - 1);
+        setShowTranslation(false); // Скрыть перевод при смене карточки
+    
+     /*   if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
             setShowTranslation(false); // Скрыть перевод при смене карточки
-        }
+        }*/
     };
 
     const { english, transcription, russian } = data[currentIndex];
 
     return (
-        <div className={`${styles.word_card_container} ${styles.study_block}`}>
+        <div className={`${styles.card} `}>
+            <div className={`${styles.word_card_container} ${styles.study_block}`}>
             <button className={styles.button_previous} onClick={prevCard} disabled={currentIndex === 0}>
             <img src={previous} alt="Предыдущий" />
             </button>
@@ -44,6 +57,8 @@ const Card = () => {
                 
             <img src={next} alt="Следующий" />
             </button>
+            </div>
+            <h4> {currentIndex+1}/{data.length}</h4>
         </div>
     );
 };

@@ -8,7 +8,19 @@
 }
 
 .word_card_container.study_block{
-    border-bottom: 4px solid rgb(239, 219, 222);   
+    display: flex;
+    flex-direction: row;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 4px solid rgb(239, 219, 222);  
+}
+
+.card h4{
+    justify-content: center;
+    text-align: center;
 }
 
 .word_card {
@@ -17,7 +29,7 @@
     text-align: center;
     width: 500px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
     background-color: #e5d2dff6;
     border:3px solid #eefdec;;
 }
@@ -27,7 +39,6 @@
     width:auto;
     cursor: pointer; /* Курсор при наведении */
     border: none;
-    color: black;
     border-radius: 8px;
     padding: 10px 20px;
     font-size: 1rem;
@@ -36,27 +47,41 @@
     transition: background-color 0.3s;
 }
 
-.button_next img{
-    width:50px;
-    cursor: pointer; /* Курсор при наведении */
-    margin: 0 auto;
-    background-color: none;
-    color: #4b3c31;
-    background-color: rgb(205, 243, 255);
+.button:hover {
+    background-color: #a0d8e0; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличенная тень при наведении */
 }
 
-.button_previous img{
-    color: #4b3c31;
-    background-color: rgb(205, 243, 255);
-    width:50px;
-    cursor: pointer; /* Курсор при наведении */
-    margin: 0 auto;
-    background-color: none;
-
+.button_next,.button_previous{
+    border-radius: 8px;
+    border: none; /* Убираем рамку */
 }
+
+.button_next img, .button_previous img {
+
+    width: 50px; 
+    cursor:pointer; 
+    margin: 0 auto;
+    background-color: transparent; /* Убираем цвет фона */
+    box-shadow: 0 4px 8px rgba(41, 40, 40, 0.2); /* Добавляем тень */
+}
+
+.button_next:disabled img,
+.button_previous:disabled img {
+    background-color: rgb(205, 243, 255); 
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* Если хотите добавить отступы и padding для кнопок */
 .nav_button {
-    padding: 10px 20px; 
-    font-size: 16px; 
+    padding: 10px; /* Добавляем отступы под кнопками, если необходимо */
     margin: 0 5px; 
 }
 
+
+.button_next:hover img, .button_previous:hover img {
+    transform: scale(1.1);
+}

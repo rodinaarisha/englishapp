@@ -11,7 +11,7 @@ export default function WordCardList() {
 
     return (
         <div className={styles.word_card_list}>
-            {data.length > 0 ? (
+            {data.length ? (
                 data.map((item) => (
                     <WordCard 
                         key={item.id} // Используем уникальный id

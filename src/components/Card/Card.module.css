@@ -48,9 +48,9 @@
 }
 
 .button:hover {
-    background-color: #a0d8e0; /* Цвет фона при наведении */
-    transform: scale(1.05); /* Увеличение кнопки при наведении */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличенная тень при наведении */
+    background-color: #a0d8e0; 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .button_next,.button_previous{
@@ -63,8 +63,8 @@
     width: 50px; 
     cursor:pointer; 
     margin: 0 auto;
-    background-color: transparent; /* Убираем цвет фона */
-    box-shadow: 0 4px 8px rgba(41, 40, 40, 0.2); /* Добавляем тень */
+    background-color: transparent; 
+    box-shadow: 0 4px 8px rgba(41, 40, 40, 0.2); 
 }
 
 .button_next:disabled img,
@@ -75,9 +75,8 @@
 }
 
 
-/* Если хотите добавить отступы и padding для кнопок */
 .nav_button {
-    padding: 10px; /* Добавляем отступы под кнопками, если необходимо */
+    padding: 10px; 
     margin: 0 5px; 
 }
 

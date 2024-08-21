@@ -4,8 +4,8 @@ import data from '../data.json';
 
 import styles from './Card.module.css';
 
-import next from '../../next.svg';
-import previous from '../../previous.svg';
+import next from '../../assets/images/next.svg';
+import previous from '../../assets/images/previous.svg';
 
 const Card = () => {
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# README приложение для изучения иностранного языка
+Добро пожаловать в ваше начальное приложение для изучения иностранного языка при помощи карточек!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Этот проект был создан с использованием  [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Доступные скрипты
 
-In the project directory, you can run:
+В каталоге проекта вы можете запустить:
 
-### `npm start`
+- npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  Запускает приложение в режиме разработки.  
+  Откройте http://localhost:3000, чтобы увидеть его в вашем браузере.  
+  Страница будет перезагружаться при внесении изменений.  
+  Вы также можете увидеть любые ошибки линтинга в консоли.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- npm test
 
-### `npm test`
+  Запускает тестовый раннер в интерактивном режиме наблюдения.  
+  Смотрите раздел о запуске тестов для получения дополнительной информации.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- npm run build
 
-### `npm run build`
+  Собирает приложение для продакшена в папку build.  
+  Оно правильно объединяет React в режиме продакшена и оптимизирует сборку для лучшей производительности.  
+  Сборка минифицируется, и имена файлов включают хэши.  
+  Ваше приложение готово к развертыванию!  
+  Смотрите раздел о развертывании для дополнительной информации.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- npm run eject
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  Примечание: это односторонняя операция. После эжектирования вы не сможете вернуться назад!  
+  Если вас не устраивают инструменты сборки и настройки, вы можете эжектировать в любое время. Эта команда удалит единую зависимость сборки из вашего проекта.  
+  Вместо этого она скопирует все конфигурационные файлы и транзитивные зависимости (webpack, Babel, ESLint и т.д.) прямо в ваш проект, так что у вас будет полный контроль над ними.  
+  Все команды, кроме eject, все равно будут работать, но они будут указывать на скопированные скрипты, так что вы сможете их настроить. На этом этапе вы остаетесь наедине.  
+  Вам не обязательно использовать eject. Кураторный набор функций подходит для небольших и средних развертываний, и вам не нужно чувствовать себя обязанным использовать эту функцию.

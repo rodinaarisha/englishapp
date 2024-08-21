@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer.jsx';
+import Header from './components/Header/Header.jsx';
 import './components/Table/Table.css';
-import CardPage from './pages/CardPage';
-import HomePage from './pages/HomePage';
-import TablePage from './pages/TablePage';
-import WordListPage from './pages/WordlistPage';
+import CardPage from './pages/CardPage.jsx';
+import HomePage from './pages/HomePage.jsx';
+import TablePage from './pages/TablePage.jsx';
+
+
+import WordListPage from './pages/WordListPage.jsx';
 
 
 const App = () => {
@@ -21,7 +23,7 @@ const App = () => {
                     <Route path="/" element={<HomePage />} /> {/* Главная страница */}
                     <Route path="/tableList" element={<TablePage />} /> {/* Страница карточек */}
                     <Route path="/card" element={<CardPage />} /> {/* Страница карточек */}
-                    <Route path="/wordcardlist" element={<WordListPage />} /> {/* Страница карточек */}
+                    <Route path="/wordcardlist" element={<WordListPage/>} /> {/* Страница карточек */}
                     {/* Добавьте маршрут для страницы WordList, если она будет создана */}
                 </Routes>
                 <Footer />

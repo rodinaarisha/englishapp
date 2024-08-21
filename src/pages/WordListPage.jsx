@@ -10,7 +10,7 @@ const WordListPage = () => {
     return (
         <div className={styles.WordCardPage}>
                         <button>Создать слово</button>
-            <WordCardList />
+            <WordCardList/>
         </div>
     );
 };

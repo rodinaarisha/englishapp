@@ -13,7 +13,7 @@ const HomePage = () => {
             <div className="home__about">
                 Это приложение для изучения и тренировки английского словарного запаса. Вы также можете использовать приложение для добавления и редактирования новых слов.
             </div>
-            <Link to="/Card">
+            <Link to="/card">
                 <button className=" button button__home">Card</button>
             </Link>
         </div>

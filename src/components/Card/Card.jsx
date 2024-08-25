@@ -15,14 +15,14 @@ const Card = () => {
     useEffect(() => {
 
         document.title = `${currentIndex}/${data.length}`;
-      });
+    });
 
     const nextCard = () => {
-  // Скрыть перевод при смене карточки
-  if (currentIndex >= data.length - 1) return;
-            setCurrentIndex(currentIndex + 1);
-            setShowTranslation(false); // Скрыть перевод при смене карточки
-        
+        // Скрыть перевод при смене карточки
+        if (currentIndex >= data.length - 1) return;
+        setCurrentIndex(currentIndex + 1);
+        setShowTranslation(false); // Скрыть перевод при смене карточки
+
     };
 
     const prevCard = () => {
@@ -30,11 +30,11 @@ const Card = () => {
 
         setCurrentIndex(currentIndex - 1);
         setShowTranslation(false); // Скрыть перевод при смене карточки
-    
-     /*   if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-            setShowTranslation(false); // Скрыть перевод при смене карточки
-        }*/
+
+        /*   if (currentIndex > 0) {
+               setCurrentIndex(currentIndex - 1);
+               setShowTranslation(false); // Скрыть перевод при смене карточки
+           }*/
     };
 
     const { english, transcription, russian } = data[currentIndex];
@@ -42,23 +42,23 @@ const Card = () => {
     return (
         <div className={`${styles.card} `}>
             <div className={`${styles.word_card_container} ${styles.study_block}`}>
-            <button className={styles.button_previous} onClick={prevCard} disabled={currentIndex === 0}>
-            <img src={previous} alt="Предыдущий" />
-            </button>
-            <div className={styles.word_card}>
-                <h3>{english}</h3>
-                <p>Транскрипция: {transcription}</p>
-                {showTranslation && <p>Перевод: {russian}</p>}
-                <button className={styles.button}  onClick={() => setShowTranslation(!showTranslation)}>
-                    {showTranslation ? 'Скрыть перевод' : 'Показать перевод'}
+                <button className={styles.button_previous} onClick={prevCard} disabled={currentIndex === 0}>
+                    <img src={previous} alt="Предыдущий" />
+                </button>
+                <div className={styles.word_card}>
+                    <h3>{english}</h3>
+                    <p>Транскрипция: {transcription}</p>
+                    {showTranslation && <p>Перевод: {russian}</p>}
+                    <button className={styles.button} onClick={() => setShowTranslation(!showTranslation)}>
+                        {showTranslation ? 'Скрыть перевод' : 'Показать перевод'}
+                    </button>
+                </div>
+                <button className={styles.button_next} onClick={nextCard} disabled={currentIndex === data.length - 1}>
+
+                    <img src={next} alt="Следующий" />
                 </button>
             </div>
-            <button className={styles.button_next}  onClick={nextCard} disabled={currentIndex === data.length - 1}>
-                
-            <img src={next} alt="Следующий" />
-            </button>
-            </div>
-            <h4> {currentIndex+1}/{data.length}</h4>
+            <h4> {currentIndex + 1}/{data.length}</h4>
         </div>
     );
 };

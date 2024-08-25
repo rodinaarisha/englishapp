@@ -8,15 +8,15 @@ import buttonDelete from '../../assets/images/buttonDelete.svg';
 
 function WordCard({ english, transcription, russian, tags, onDelete }) {
 
-  function trim(){
-    return  tags ? tags.split(',').map(tag => tag.trim()):[];
+  function trim() {
+    return tags ? tags.split(',').map(tag => tag.trim()) : [];
   };
 
   const [isEditing, setIsEditing] = useState(false);
-  const [editableEnglish, setEditableEnglish] = useState(english); 
+  const [editableEnglish, setEditableEnglish] = useState(english);
   const [editableTranscription, setEditableTranscription] = useState(transcription);
   const [editableRussian, setEditableRussian] = useState(russian);
-  const [editableTags, setEditableTags] = useState(trim()); 
+  const [editableTags, setEditableTags] = useState(trim());
 
   const tagsTitle = editableTags.length ? editableTags.join(', ') : 'Нет раздела';
 
@@ -52,18 +52,18 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
 
         {isEditing && (
           <button className={styles.button_cancel} onClick={handleCancel}>
- <img src={buttonCancel} alt="Изменить" />
+            <img src={buttonCancel} alt="Изменить" />
 
           </button>
-      )}
+        )}
       </div>
       <div className={styles.word_card_block}>
         <div className={styles.word_card_bloc1}>
           <p><b>Тема:</b> {tagsTitle}</p>
-          <h2>Слово: 
+          <h2>Слово:
             {isEditing ? (
               <input
-              className={styles.input}
+                className={styles.input}
 
                 value={editableEnglish}
                 onChange={(e) => setEditableEnglish(e.target.value)}
@@ -75,10 +75,10 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
           </h2>
         </div>
         <div className={styles.word_card_bloc2}>
-          <h2>Перевод: 
+          <h2>Перевод:
             {isEditing ? (
               <input
-              className={styles.input}
+                className={styles.input}
 
                 value={editableRussian}
                 onChange={(e) => setEditableRussian(e.target.value)}
@@ -88,10 +88,10 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
               editableRussian
             )}
           </h2>
-          <h3>Транскрипция: 
+          <h3>Транскрипция:
             {isEditing ? (
               <input
-              className={styles.input}
+                className={styles.input}
 
                 value={editableTranscription}
                 onChange={(e) => setEditableTranscription(e.target.value)}

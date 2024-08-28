@@ -5,7 +5,7 @@ import CardContainer from '../../components/CardContainer/CardContainer';
 
 const CardPage = () => {
     return (
-        <div>
+        <div style={{ marginTop: '10%' }}>
             <CardContainer words={data} />
 
         </div>

@@ -1,25 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Импортируем Link
+import logo from '../../assets/images/logo.jpg';
+import Menu from '../Navbar/Navbar';
 import './Header.css';
+
 
 const Header = () => {
     return (
         <header className="header">
+            <Link to="/">
+                <img src={logo} alt="Логотип" className="logo" />
+            </Link>
             <h1 className="header__title">Изучение иностранных слов</h1>
-            <div className="button-container">
-                <Link to="/"> {/* Ссылка на HomePage */}
-                    <button className="button">Home</button>
-                </Link>
-                <Link to="/tablelist"> {/* Ссылка на WordList (предполагается, что такая страница есть) */}
-                    <button className="button">TableList</button>
-                </Link>
-                <Link to="/card"> {/* Ссылка на CardPage */}
-                    <button className="button">Card</button>
-                </Link>
-                <Link to="/wordcardlist"> {/* Ссылка на CardPage */}
-                    <button className="button">WordCardList</button>
-                </Link>
-            </div>
+
+            <Menu />
         </header>
     );
 };

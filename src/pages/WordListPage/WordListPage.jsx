@@ -8,7 +8,7 @@ import styles from './WordListPage.module.css';
 const WordListPage = () => {
 
     return (
-        <div className={styles.WordCardPage}>
+        <div className={styles.WordCardPage} style={{ marginTop: '10%' }}>
             <button>Создать слово</button>
             <WordCardList />
         </div>

@@ -20,7 +20,7 @@ const WordListPage = () => {
     };
 
     return (
-        <div>
+        <div style={{ marginTop: '10%' }}>
             <Table />
         </div>
     );

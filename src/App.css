@@ -31,3 +31,7 @@ h1 {
 .button:hover {
   background-color: #62befc;
 }
+
+a {
+  text-decoration: none; /* Убираем подчеркивание */
+}

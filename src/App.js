@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import TablePage from './pages/TablePage/TablePage.jsx';
 
 
+import Missing from './components/Missing/Missing.jsx';
 import WordListPage from './pages/WordListPage/WordListPage.jsx';
 
 
@@ -18,15 +19,19 @@ const App = () => {
             <div>
                 <Header /> {/* Добавляем Header */}
                 
+                
                 {/* Определение маршрутов */}
+                <div style={{ marginTop: '60px' }}> {/* Отступ для фиксированного Header */}
+
                 <Routes> {/* Обновлено на Routes */}
                     <Route path="/" element={<HomePage />} /> {/* Главная страница */}
                     <Route path="/tablelist" element={<TablePage />} /> {/* Страница карточек */}
                     <Route path="/card" element={<CardPage />} /> {/* Страница карточек */}
                     <Route path="/wordcardlist" element={<WordListPage/>} /> {/* Страница карточек */}
-                    {/* Добавьте маршрут для страницы WordList, если она будет создана */}
+                    <Route path="*" element={<Missing/>} />
                 </Routes>
                 <Footer />
+                </div>
             </div>
         </Router>
     );

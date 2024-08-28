@@ -6,10 +6,10 @@ import Header from './components/Header/Header.jsx';
 import './components/Table/Table.css';
 import CardPage from './pages/CardPage/CardPage.jsx';
 import HomePage from './pages/HomePage/HomePage.jsx';
-import TablePage from './pages/TablePage/.jsx';
+import TablePage from './pages/TablePage/TablePage.jsx';
 
 
-import WordListPage from './pages/WordListPage.jsx';
+import WordListPage from './pages/WordListPage/WordListPage.jsx';
 
 
 const App = () => {

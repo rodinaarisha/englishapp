@@ -1,10 +1,13 @@
 import React from 'react';
-import Card from '../components/Card/Card';
+import data from '../../components/data.json';
+
+import CardContainer from '../../components/CardContainer/CardContainer';
 
 const CardPage = () => {
     return (
         <div>
-            <Card />
+            <CardContainer words={data} />
+
         </div>
     );
 };

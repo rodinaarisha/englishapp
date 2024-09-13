@@ -1,7 +1,6 @@
 
 
 .word_card {
-    
     background-color: #e5d2dff6;
     border: 3px solid #eefdec;;
     border-radius: 10px;
@@ -60,7 +59,7 @@
     transition: border-color 0.3s;
 }
 
-.input:focus {
+/*.input:focus {
     border-color: #007bff;
     outline: none;
-  }
+  }*/

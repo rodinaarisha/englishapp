@@ -6,6 +6,18 @@ import styles from './CardContainer.module.css';
 
 const CardContainer = ({ words }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [wordsStudied, setWordsStudied] = useState(0);
+    const [studiedWordsIndices, setStudiedWordsIndices] = useState([]); // Массив для отслеживания изученных слов
+
+
+    const incrementWordsStudied = () => {
+        // Проверяем, было ли слово уже изучено
+        if (!studiedWordsIndices.includes(currentIndex)) {
+            setWordsStudied(prev => prev + 1);
+            setStudiedWordsIndices(prev => [...prev, currentIndex]); // Добавляем индекс изученного слова
+        }
+    };
+
     const [showTranslation, setShowTranslation] = useState(false); // Состояние для показа перевода
 
     const nextCard = () => {
@@ -23,7 +35,7 @@ const CardContainer = ({ words }) => {
     };
 
     const handleToggleTranslation = () => {
-        setShowTranslation((prev) => !prev); // Переключаем видимость перевода
+        setShowTranslation((prev) => !prev);
     };
 
     return (
@@ -39,7 +51,10 @@ const CardContainer = ({ words }) => {
                 <Card
                     word={words[currentIndex]}
                     showTranslation={showTranslation} // Передаем состояние видимости перевода
-                    onToggleTranslation={handleToggleTranslation} // Передаем функцию переключения
+                    onToggleTranslation={handleToggleTranslation}
+                    onWordStudied={incrementWordsStudied}
+                    currentIndex={currentIndex}
+
                 />
                 <button
                     className={styles.button_next}
@@ -48,7 +63,9 @@ const CardContainer = ({ words }) => {
                 >
                     <img src={next} alt="Следующий" />
                 </button>
+
             </div>
+            <h4>Изучено слов: {wordsStudied}</h4>
             <h4>{currentIndex + 1}/{words.length}</h4>
         </div>
     );

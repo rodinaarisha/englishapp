@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddWordForm.css'; // Импортируем файл стилей
+import styles from './AddWordForm.module.css';
 
 const AddWordForm = ({ onAdd }) => {
     const [term, setTerm] = useState('');
@@ -18,42 +18,46 @@ const AddWordForm = ({ onAdd }) => {
         e.preventDefault();
         const newWord = { term, transcription, translation, theme };
         onAdd(newWord);
-        
+
         resetForm()
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="input-group">
-                <input 
-                    type="text" 
-                    placeholder="Слово" 
-                    value={term} 
-                    onChange={(e) => setTerm(e.target.value)} 
-                    required 
-                />
-                <input 
-                    type="text" 
-                    placeholder="Транскрипция" 
-                    value={transcription} 
-                    onChange={(e) => setTranscription(e.target.value)} 
-                />
-                <input 
-                    type="text" 
-                    placeholder="Перевод" 
-                    value={translation} 
-                    onChange={(e) => setTranslation(e.target.value)} 
-                    required 
-                />
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.input_group_container}>
+                <div className={styles.input_card_bloc1}>
+                    <input className={styles.input}
+                        type="text"
+                        placeholder="Тема"
+                        value={theme}
+                        onChange={(e) => setTheme(e.target.value)}
+                        required
+                    />
+                    <input className={styles.input}
+                        type="text"
+                        placeholder="Слово"
+                        value={term}
+                        onChange={(e) => setTerm(e.target.value)}
+                        required
+                    />
+                </div>
+                <div className={styles.input_card_bloc2}>
+                    <input className={styles.input}
+                        type="text"
+                        placeholder="Перевод"
+                        value={translation}
+                        onChange={(e) => setTranslation(e.target.value)}
+                        required
+                    />
+                    <input className={styles.input}
+                        type="text"
+                        placeholder="Транскрипция"
+                        value={transcription}
+                        onChange={(e) => setTranscription(e.target.value)}
+                    />
+                </div>
             </div>
-            <input 
-                type="text" 
-                placeholder="Тема" 
-                value={theme} 
-                onChange={(e) => setTheme(e.target.value)} 
-                required 
-            />
-            <button type="submit">Добавить слово</button>
+            <button className={styles.add_button_form} type="submit">Добавить слово</button>
         </form>
     );
 };

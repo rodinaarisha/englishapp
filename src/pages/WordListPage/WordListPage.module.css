@@ -1,4 +1,31 @@
+
 .WordCardPage{
+    justify-items: center;
     display: flex;
     flex-direction: column;
 }
+.WordCardPageContainer{
+    display: flex;
+    flex-direction: column;
+    
+}
+ .add_button{
+    text-align: center;
+    justify-content: center; 
+    width: 550px;
+    margin: 0 auto;
+    margin-left: 37%;
+    color: #4b3c31;
+    background-color: rgb(205, 243, 255);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.add_button:hover {
+    background-color: #62befc;
+  }

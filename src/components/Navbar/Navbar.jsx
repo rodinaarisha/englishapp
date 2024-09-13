@@ -6,14 +6,11 @@ function Menu({ title = "Изучение иностранных слов" }) {
             <Link to="/"> {/* Ссылка на HomePage */}
                 <button className="button">Home</button>
             </Link>
-            <Link to="/tablelist"> {/* Ссылка на WordList (предполагается, что такая страница есть) */}
-                <button className="button">TableList</button>
+            <Link to="/wordlist"> {/* Ссылка на CardPage */}
+                <button className="button">Word List</button>
             </Link>
             <Link to="/card"> {/* Ссылка на CardPage */}
-                <button className="button">Card</button>
-            </Link>
-            <Link to="/wordcardlist"> {/* Ссылка на CardPage */}
-                <button className="button">WordCardList</button>
+                <button className="button">Game</button>
             </Link>
         </div>
     );

@@ -9,7 +9,7 @@ function Menu({ title = "Изучение иностранных слов" }) {
             <Link to="/wordlist"> {/* Ссылка на CardPage */}
                 <button className="button">Word List</button>
             </Link>
-            <Link to="/card"> {/* Ссылка на CardPage */}
+            <Link to="/game"> {/* Ссылка на CardPage */}
                 <button className="button">Game</button>
             </Link>
         </div>

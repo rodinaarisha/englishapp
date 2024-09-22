@@ -19,7 +19,6 @@ const Card = ({ word, showTranslation, onToggleTranslation, onWordStudied, curre
         onWordStudied(); // Увеличиваем количество изученных слов
     };
 
-
     return (
         <div className={`${styles.card}`}>
             <div className={`${styles.word_card_container} ${styles.study_block}`}>

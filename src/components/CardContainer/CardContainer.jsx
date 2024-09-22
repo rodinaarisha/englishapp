@@ -20,19 +20,32 @@ const CardContainer = ({ words }) => {
 
     const [showTranslation, setShowTranslation] = useState(false); // Состояние для показа перевода
 
-    const nextCard = () => {
-        if (currentIndex < words.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-            setShowTranslation(false); // Скрыть перевод при переходе на следующую карточку
+    const updateTranslationVisibility = (index) => {
+        if (studiedWordsIndices.includes(index)) {
+            setShowTranslation(true);
+        } else {
+            setShowTranslation(false);
         }
     };
 
-    const prevCard = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-            setShowTranslation(false); // Скрыть перевод при переходе на предыдущую карточку
+
+    const nextCard = () => {
+        // Проверяем, есть ли следующая карточка
+        if (currentIndex < words.length - 1) {
+            setCurrentIndex(currentIndex + 1);
+            updateTranslationVisibility(currentIndex + 1); // Обновляем видимость перевода
         }
     };
+
+
+    const prevCard = () => {
+        // Проверяем, есть ли предыдущая карточка
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+            updateTranslationVisibility(currentIndex - 1); // Обновляем видимость перевода
+        }
+    };
+
 
     const handleToggleTranslation = () => {
         setShowTranslation((prev) => !prev);

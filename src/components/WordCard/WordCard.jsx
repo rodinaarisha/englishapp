@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './WordCard.module.css';
 
 import buttonCancel from '../../assets/images/buttonCancel.svg';
@@ -12,23 +12,69 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
     return tags ? tags.split(',').map(tag => tag.trim()) : [];
   };
 
+  const englishInputRef = useRef(null);
+  const transcriptionInputRef = useRef(null);
+  const russianInputRef = useRef(null);
+
   const [isEditing, setIsEditing] = useState(false);
   const [editableEnglish, setEditableEnglish] = useState(english);
   const [editableTranscription, setEditableTranscription] = useState(transcription);
   const [editableRussian, setEditableRussian] = useState(russian);
   const [editableTags, setEditableTags] = useState(trim());
 
+  // Состояние для отслеживания пустых полей
+  const [emptyFields, setEmptyFields] = useState({
+    english: false,
+    transcription: false,
+    russian: false,
+  });
+
+
   const tagsTitle = editableTags.length ? editableTags.join(', ') : 'Нет раздела';
 
-  /*const handleEdit = () => {
+  // Проверка на пустые поля при каждом изменении
+  const handleChangeEnglish = (e) => {
+    setEditableEnglish(e.target.value);
+    checkEmptyFields();
+  };
+
+  const handleChangeTranscription = (e) => {
+    setEditableTranscription(e.target.value);
+    checkEmptyFields();
+  };
+
+  const handleChangeRussian = (e) => {
+    setEditableRussian(e.target.value);
+    checkEmptyFields();
+  };
+
+  const checkEmptyFields = () => {
+    setEmptyFields({
+      english: editableEnglish.trim() === '',
+      transcription: editableTranscription.trim() === '',
+      russian: editableRussian.trim() === '',
+    });
+  };
+
+
+  const handleEdit = () => {
+    // Проверяем состояние полей
     if (isEditing) {
-      setIsEditing(false); // Закрываем режим редактирования после сохранения
-    } else {
-      setIsEditing(true); // Открываем режим редактирования
+      if (emptyFields.english || emptyFields.transcription || emptyFields.russian) {
+        if (emptyFields.english) {
+          englishInputRef.current.focus();
+        } else if (emptyFields.transcription) {
+          transcriptionInputRef.current.focus();
+        } else if (emptyFields.russian) {
+          russianInputRef.current.focus();
+        }
+        return; // Прерываем выполнение, если есть пустые поля
+      }
     }
-  };*/
-  //или лучше так
-  const handleEdit = () => setIsEditing(!isEditing)
+
+    // Переключаем режим редактирования
+    setIsEditing(!isEditing);
+  };
 
   const handleCancel = () => {
     setEditableEnglish(english);
@@ -52,7 +98,7 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
 
         {isEditing && (
           <button className={styles.button_cancel} onClick={handleCancel}>
-            <img src={buttonCancel} alt="Изменить" />
+            <img src={buttonCancel} alt="отменить " />
 
           </button>
         )}
@@ -64,10 +110,14 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
             {isEditing ? (
               <input
                 className={styles.input}
-
+                ref={englishInputRef}
                 value={editableEnglish}
-                onChange={(e) => setEditableEnglish(e.target.value)}
+                onChange={handleChangeEnglish}
                 placeholder="Введите слово"
+                onBlur={checkEmptyFields}
+
+                required
+
               />
             ) : (
               editableEnglish
@@ -79,10 +129,13 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
             {isEditing ? (
               <input
                 className={styles.input}
-
+                ref={russianInputRef}
                 value={editableRussian}
-                onChange={(e) => setEditableRussian(e.target.value)}
+                onChange={handleChangeRussian}
                 placeholder="Введите перевод"
+                onBlur={checkEmptyFields}
+
+                required
               />
             ) : (
               editableRussian
@@ -92,11 +145,16 @@ function WordCard({ english, transcription, russian, tags, onDelete }) {
             {isEditing ? (
               <input
                 className={styles.input}
-
+                ref={transcriptionInputRef}
                 value={editableTranscription}
-                onChange={(e) => setEditableTranscription(e.target.value)}
+                onChange={handleChangeTranscription}
                 placeholder="Введите транскрипцию"
+                onBlur={checkEmptyFields}
+
+                disabled={!isEditing}
+                required
               />
+
             ) : (
               editableTranscription
             )}

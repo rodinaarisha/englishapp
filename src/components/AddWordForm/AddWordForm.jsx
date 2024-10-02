@@ -47,11 +47,12 @@ const AddWordForm = ({ onAdd }) => {
 
         setShowNotification(false); // Скрываем уведомление, если все поля заполнены
 
-        const newWord = { term, transcription, translation, theme };
+        const tags = "";
+        const tags_json = ""
+        const newWord = { term, transcription, translation, theme, tags, tags_json };
         onAdd(newWord);
 
         resetForm();
-        console.log(newWord);
     };
 
 

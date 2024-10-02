@@ -6,3 +6,9 @@ width: 30%;
 margin: 0 auto;
 padding-left: 50px;
 }
+
+.loading{
+    
+    display: flex;
+    text-align: center;
+}

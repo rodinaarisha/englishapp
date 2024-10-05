@@ -1,15 +1,20 @@
-import React from 'react';
-import data from '../../components/data.json';
+import { observer } from 'mobx-react';
+import React, { useEffect } from "react";
+import wordStore from '../../store/WordStore';
 
 import CardContainer from '../../components/CardContainer/CardContainer';
 
-const CardPage = () => {
+const CardPage = observer(() => {
+    useEffect(() => {
+        wordStore.fetchWords();
+    }, []);
+
     return (
         <div style={{ marginTop: '10%' }}>
-            <CardContainer words={data} />
+            <CardContainer words={wordStore.words} />
 
         </div>
     );
-};
+});
 
 export default CardPage;

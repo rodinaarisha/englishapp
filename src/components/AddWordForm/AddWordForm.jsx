@@ -1,37 +1,38 @@
+import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
+import wordStore from '../../store/WordStore';
 import styles from './AddWordForm.module.css';
 
-const AddWordForm = ({ onAdd }) => {
-    const [term, setTerm] = useState('');
+
+const AddWordForm = observer(() => {
+    const [english, setEnglish] = useState('');
     const [transcription, setTranscription] = useState('');
-    const [translation, setTranslation] = useState('');
-    const [theme, setTheme] = useState('');
+    const [russian, setRussian] = useState('');
+    const [tags, setTags] = useState('');
     const [showNotification, setShowNotification] = useState(false);
 
     const resetForm = () => {
-        setTerm('');
+        setEnglish('');
         setTranscription('');
-        setTranslation('');
-        setTheme('');
+        setRussian('');
+        setTags('');
     };
 
-    // Состояние для отслеживания пустых полей
     const [emptyFields, setEmptyFields] = useState({
-        term: false,
+        english: false,
         transcription: false,
-        translation: false,
-        theme: false,
+        russian: false,
+        tags: false,
     });
-
 
     const checkEmptyFields = () => {
         const fields = {
-            term: term.trim() === '',
+            english: english.trim() === '',
             transcription: transcription.trim() === '',
-            translation: translation.trim() === '',
-            theme: theme.trim() === '',
+            russian: russian.trim() === '',
+            tags: tags.trim() === '',
         };
-        setEmptyFields(fields); // Здесь не должно быть ошибки
+        setEmptyFields(fields);
         return fields;
     };
 
@@ -40,21 +41,24 @@ const AddWordForm = ({ onAdd }) => {
         const fields = checkEmptyFields();
 
         // Проверяем пустые поля и показываем уведомление
-        if (fields.term || fields.transcription || fields.translation || fields.theme) {
+        if (fields.english || fields.transcription || fields.russian || fields.tags) {
             setShowNotification(true);
             return;
         }
 
-        setShowNotification(false); // Скрываем уведомление, если все поля заполнены
-
-        const newWord = { term, transcription, translation, theme };
-        onAdd(newWord);
-
+        setShowNotification(false);
+        const newWord = {
+            tags_json: JSON.stringify(tags.split(',').map(tag => tag.trim())), // или в нужном вам формате
+            english: english.trim(),
+            transcription: transcription.trim() === '' ? '[no transcription]' : transcription.trim(),
+            russian: russian.trim(),
+            tags: tags.trim(),
+        };
+        wordStore.addWord(newWord);
         resetForm();
+
         console.log(newWord);
     };
-
-
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -63,15 +67,15 @@ const AddWordForm = ({ onAdd }) => {
                     <input className={styles.input}
                         type="text"
                         placeholder="Тема"
-                        value={theme}
-                        onChange={(e) => setTheme(e.target.value)}
+                        value={tags}
+                        onChange={(e) => setTags(e.target.value)}
                         required
                     />
                     <input className={styles.input}
                         type="text"
                         placeholder="Слово"
-                        value={term}
-                        onChange={(e) => setTerm(e.target.value)}
+                        value={english}
+                        onChange={(e) => setEnglish(e.target.value)}
                         required
                     />
                 </div>
@@ -79,8 +83,8 @@ const AddWordForm = ({ onAdd }) => {
                     <input className={styles.input}
                         type="text"
                         placeholder="Перевод"
-                        value={translation}
-                        onChange={(e) => setTranslation(e.target.value)}
+                        value={russian}
+                        onChange={(e) => setRussian(e.target.value)}
                         required
                     />
                     <input className={styles.input}
@@ -89,13 +93,14 @@ const AddWordForm = ({ onAdd }) => {
                         value={transcription}
                         onChange={(e) => setTranscription(e.target.value)}
                     />
-                    <div className={styles.showNotification} >{showNotification && <span>Пожалуйста, заполните все обязательные поля.</span>}</div>
+                    <div className={styles.showNotification}>
+                        {showNotification && <span>Пожалуйста, заполните все обязательные поля.</span>}
+                    </div>
                 </div>
                 <button className={styles.add_button_form} type="submit">Добавить слово</button>
             </div>
         </form>
-
     );
-};
+});
 
 export default AddWordForm;
